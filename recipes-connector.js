@@ -4,6 +4,7 @@ const { BadRequestException } = require('./errors');
 
 let recipes;
 
+/** Connect to database - call only once */ 
 const establishConnection = async () => {
   const client = await Connection.connectToMongo();
   recipes = client.db('training-simon').collection('recipes');
